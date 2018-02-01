@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html" >
+		
+	<f:view xmlns:h="http://java.sun.com/jsf/html">
+		<h:head>
+			<title>Sign-in</title>
+		</h:head>
+		
+		<h:body>
+			<h:form>
+				<h:panelGrid border="0" columns="3">
+					
+					<h:outputText id="IDfirstnamelabel" value="First Name" />
+					<h:inputText value="#{userBean.firstName}" id="IDfirstname" required="true" requiredMessage="Must submit a value!"
+				    			validatorMessage="More then 2 letters in your name Bucko!.">
+				    	<f:validateLength minimum="3"/>
+				    </h:inputText>
+					<h:message for="IDfirstname" />
+					
+					<h:outputText id="IDlastnamelabel" value="Last Name" />
+					<h:inputText value="#{userBean.lastName}" id="IDlastname" required="true" requiredMessage="Must submit a value!"
+				    			validatorMessage="More then 2 letters in your name Bucko!.">
+				    	<f:validateLength minimum="3"/>
+				    </h:inputText>
+					<h:message for="IDlastname" />
+					
+					<h:outputText id="IDagelabel" value="Age" />
+					<h:selectOneMenu id="IDage" value="#{userBean.age}">
+						<f:selectItem itemLabel="10" itemValue="10"/>
+						<f:selectItem itemLabel="20" itemValue="20"/>
+						<f:selectItem itemLabel="30" itemValue="30"/>
+					</h:selectOneMenu>
+					<h:message for="IDage" />
+					
+					<h:outputText id="IDusernamelabel" value="Username" />
+					<h:inputText value="#{userBean.username}" id="IDusername" required="true" requiredMessage="Must submit a value!"
+				    			validatorMessage="More then 2 letters in your name Bucko!.">
+				    	<f:validateLength minimum="3"/>
+				    </h:inputText>
+					<h:message for="IDusername" />
+					
+					<h:outputText id="IDpasswordlabel" value="Password" />
+					<h:inputSecret value="#{userBean.password}" id="IDpassword" required="true" requiredMessage="Must submit a value!" />
+					<h:message for="IDpassword" />
+					
+					<h:outputText id="IDgenderlabel" value="Gender" />
+					<h:selectOneRadio id="IDgender" value="#{userBean.gender}">
+						<f:selectItem itemLabel="Man" itemValue="Man"/>
+						<f:selectItem itemLabel="Woman" itemValue="Woman"/>
+					</h:selectOneRadio>
+					<h:message for="IDgender" />
+					
+				<h:commandButton id="IDsubmitbutton" value="Submit" action="#{userBean.signin}" />
+				
+				<h:commandButton id="IDcancelbutton" value="Cancel" action="#{userBean.cancel}" immediate="true"/>
+
+			</h:panelGrid>
+			</h:form>
+		</h:body>
+	</f:view>
+</html>
+

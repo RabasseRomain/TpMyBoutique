@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html" >
+
+	<f:view>
+		<h:head>
+			<title>Zip Code</title>
+		</h:head>
+		
+		<h:body>
+			<h2>Dans un univers de <i>cyclistes</i>, seul les <i>sophistes</i> se graissent la patte, les autres <i>freinent</i>.</h2>
+			<h:form>
+				<h:message id="IdMessage" for="TextZipCode" />
+				<br/>
+				<h:inputText id="TextZipCode" value="#{cityBean.zipCode}" maxlength="5" required="true" requiredMessage="Must submit a value!"
+				    converterMessage="Please enter digits only."
+				    validatorMessage="Please enter 5 digits.">
+				    <f:validateLength minimum="5" maximum="5" />
+			    </h:inputText>
+			    <h:outputLabel id="IdCity" value="#{cityBean.name}" />
+			    <br/>
+				<h:commandButton id="ValidationButton" value="Confirm" action="#{cityBean.validate}" />
+			</h:form>
+		</h:body>
+	</f:view>
+</html>
