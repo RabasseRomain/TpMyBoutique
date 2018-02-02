@@ -10,12 +10,12 @@ public class BoutiquePhaseListener implements PhaseListener {
 
 	@Override
 	public void afterPhase(PhaseEvent event) {
-		System.out.println(event.getPhaseId());
+		//System.out.println(event.getPhaseId());
 	}
 	
 	@Override
 	public void beforePhase(PhaseEvent event) {
-		System.out.println(event.getPhaseId());
+		//System.out.println(event.getPhaseId());
 	}
 
 	@Override

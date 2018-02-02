@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html" >
+		
+<f:view>
+
+	<h:head>
+		<title>
+		  	<ui:insert name="Title">
+		  		Web Boutique
+		  	</ui:insert>
+	  	</title>
+		<h:outputStylesheet name="StyleShop.css" library="style" />
+		<h:outputScript name="Boutique.js" library="script" />
+	</h:head>
+	
+	<h:body>
+		
+		<div id="Header">
+		    <ui:insert name="Header">
+		    	<div id="logo">
+		    			<h:graphicImage id="LogoImage" name="CoffeeShop.jpg" library="img" />
+		    		</div>
+		    </ui:insert>
+		</div>
+		
+		<div id="Content">
+		  <ui:insert name="Content">
+		    	<div id="Toprow">	    	
+		    		Default Main Body Area    		
+		    	</div>
+		  </ui:insert>
+		</div>
+		
+		<div id="Footer">
+			<ui:insert name="Footer">
+		    	<div id="Copyright">
+		    		<h4>(c) 2018</h4>
+				</div>
+			</ui:insert>
+		</div>
+		
+	</h:body>
+</f:view>
+</html>
