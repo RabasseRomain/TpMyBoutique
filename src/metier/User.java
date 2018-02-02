@@ -22,7 +22,7 @@ public class User {
 		age = 0;
 		gender = "unknown";
 	}
-
+	
 	// ----- Getters, Setters, toString -----
 	
 	@Override

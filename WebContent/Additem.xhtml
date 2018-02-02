@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html" >
+		
+<f:view xmlns:h="http://java.sun.com/jsf/html">
+	<h:head>
+		<title>Item adder</title>
+		<h:outputScript library="javax.faces" name="jsf.js" target="head" />
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<h:panelGrid border="0" columns="3">
+				
+				<h:outputText id="IDnamelabel" value="Name" />
+				<h:inputText id="IDname" value="#{itemCRUDBean.name}" >
+					<f:ajax id="IDnamecheck" event="keyup" render="IDname" listener="#{itemCRUDBean.CheckName(event)}" />
+				</h:inputText>
+				<h:outputText id="IDnameerror" value="#{itemCRUDBean.nameError}"/>
+				
+				<h:outputText id="IDpricelabel" value="Price" />
+				<h:inputText id="IDprice" value="#{itemCRUDBean.price}"  >
+					<f:ajax id="IDpricecheck" event="blur" render="IDprice" listener="#{itemCRUDBean.CheckPrice(event)}" />
+				</h:inputText>
+				<h:outputText id="IDpriceerror" value="#{itemCRUDBean.priceError}"/>
+				
+				<h:outputText id="IDdescriptionlabel" value="Description" />
+				<h:inputText id="IDdescription" value="#{itemCRUDBean.description}"  >
+					<f:ajax id="IDdescriptioncheck" event="keyup" render="IDdescription" listener="#{itemCRUDBean.CheckDescription(event)}" />
+				</h:inputText>
+				<h:outputText id="IDdescriptionerror" value="#{itemCRUDBean.descriptionError}"/>
+				
+				<h:commandButton id="IDsubmitbutton" value="Submit" action="#{itemCRUDBean.AddItem}" />
+			
+			</h:panelGrid>
+		</h:form>
+	</h:body>
+</f:view>
+</html>
+

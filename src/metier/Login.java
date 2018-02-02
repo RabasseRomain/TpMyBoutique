@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.html.HtmlOutputLabel;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 @ManagedBean(name="loginBean")
 @SessionScoped
@@ -33,6 +34,12 @@ public class Login {
 			message.setStyle("color:RED");
 		}
 		return null;
+	}
+	
+	public String disconnect() {
+		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		session.invalidate();
+		return "Login";
 	}
 
 	public String signin() {

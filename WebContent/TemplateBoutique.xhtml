@@ -6,7 +6,6 @@
 		xmlns:h="http://java.sun.com/jsf/html" >
 		
 <f:view>
-
 	<h:head>
 		<title>
 		  	<ui:insert name="Title">
@@ -15,34 +14,57 @@
 	  	</title>
 		<h:outputStylesheet name="StyleShop.css" library="style" />
 		<h:outputScript name="Boutique.js" library="script" />
-	</h:head>
-	
+		<h:outputScript name="jsf.js" library="javax.faces" />
+	</h:head>	
 	<h:body>
-		
-		<div id="Header">
-		    <ui:insert name="Header">
-		    	<div id="logo">
-		    			<h:graphicImage id="LogoImage" name="CoffeeShop.jpg" library="img" />
-		    		</div>
-		    </ui:insert>
-		</div>
-		
-		<div id="Content">
-		  <ui:insert name="Content">
-		    	<div id="Toprow">	    	
-		    		Default Main Body Area    		
-		    	</div>
-		  </ui:insert>
-		</div>
-		
-		<div id="Footer">
-			<ui:insert name="Footer">
-		    	<div id="Copyright">
-		    		<h4>(c) 2018</h4>
-				</div>
-			</ui:insert>
-		</div>
-		
+		<h:panelGroup rendered="#{not empty checkedUser}" >
+			<div id="Header">
+			    <ui:insert name="Header">
+			    	<div id="logo">
+			    		<h:graphicImage id="LogoImage" name="CoffeeShop.jpg" library="img" />
+			    	</div>
+			    </ui:insert>
+			</div>
+			<div id="Content">
+			  <ui:insert name="Content">
+			    	<div id="Toprow">	
+			    		 <ui:insert name="Toprow">    	
+			    			Default Top Main Body Area  
+			    		</ui:insert>  		
+			    	</div>
+			    	<div id="Centerrow">	
+			    		 <ui:insert name="Centerrow">    	
+			    			Default Center Main Body Area  
+			    		</ui:insert>  		
+			    	</div>
+			    	<div id="Bottomrow">	
+			    		 <ui:insert name="Bottomrow">    	
+			    			Default Bottom Main Body Area  
+			    		</ui:insert>  		
+			    	</div>
+			  </ui:insert>
+			</div>
+			<div id="Footer">
+				<ui:insert name="Footer">
+					<div id="Userinfo">
+						<ui:insert name="Userinfo">
+				    		<br/>
+				    		Connected as: #{checkedUser.username}
+				    		<br/>
+				    		<h:form>
+				    			<h:commandLink action="#{loginBean.disconnect}">Disconnect</h:commandLink>
+				    		</h:form>
+			    		</ui:insert>
+					</div>
+			    	<div id="Copyright">
+			    		<ui:insert name="Copyright">
+				    		<br/>
+				    		(c) 2018
+			    		</ui:insert>
+					</div>
+				</ui:insert>
+			</div>
+		</h:panelGroup>
 	</h:body>
 </f:view>
 </html>

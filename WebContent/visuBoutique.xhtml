@@ -1,23 +1,50 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-          
-<html	xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-		xmlns:f="http://xmlns.jcp.org/jsf/core"
-		xmlns:h="http://java.sun.com/jsf/html" >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core">
 
 <ui:composition template="/TemplateBoutique.xhtml">
 
 	<ui:define name="Title">
 		Catalogue
 	</ui:define>
-	
-	<ui:define name="Content">
+
+	<ui:define name="Toprow">
 		<script>
 			welcome("#{checkedUser.firstName} #{checkedUser.lastName}");
 		</script>
+		<br/>
+		<h3>Here are our Items</h3>
+		<br/>
 	</ui:define>
-
+	
+	<ui:define name="Centerrow">
+		<h:dataTable border="1" value="#{catalogue}" var="item" style="width: 600px; height: 800px; text-align: CENTER">
+			<h:column id="column1">
+				<p:facet name="header">
+					<h:outputText value="NAME" />
+				</p:facet>
+				<h:outputText value="#{item.name}" />
+			</h:column>
+			<h:column id="column2">
+				<p:facet name="header">
+					<h:outputText value="PRICE" />
+				</p:facet>
+				<h:outputText value="#{item.price}" />
+			</h:column>
+			<h:column id="column3">
+				<p:facet name="header">
+					<h:outputText value="DESCRIPTION" />
+				</p:facet>
+				<h:outputText value="#{item.description}" />
+			</h:column>
+		</h:dataTable>
+		<br/><br/>
+	</ui:define>
+	
 </ui:composition>
-		
 </html>
